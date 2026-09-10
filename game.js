@@ -2,6 +2,7 @@ const canvas = document.querySelector("#game");
 const context = canvas.getContext("2d");
 const scoreElement = document.querySelector("#score");
 const bestScoreElement = document.querySelector("#best-score");
+const speedElement = document.querySelector("#speed");
 const overlay = document.querySelector("#overlay");
 const overlayTitle = document.querySelector("#overlay-title");
 const overlayHint = document.querySelector("#overlay-hint");
@@ -57,6 +58,7 @@ function resetGame() {
   queuedDirection = directions.right;
   score = 0;
   scoreElement.textContent = score;
+  updateSpeedDisplay();
   food = createFood();
   lastStepTime = 0;
   render();
@@ -135,6 +137,7 @@ function update() {
   if (ateFood) {
     score += 1;
     scoreElement.textContent = score;
+    updateSpeedDisplay();
     food = createFood();
 
     if (score > bestScore) {
@@ -145,6 +148,11 @@ function update() {
   } else {
     snake.pop();
   }
+}
+
+function updateSpeedDisplay() {
+  const interval = Math.max(MIN_SPEED, START_SPEED - score * 4);
+  speedElement.textContent = `${(START_SPEED / interval).toFixed(1)}×`;
 }
 
 function endGame() {
