@@ -1,0 +1,6 @@
+# 编辑器产生的配置目录
+.vscode/
+
+# Windows 和 macOS 可能产生的系统文件
+Thumbs.db
+.DS_Store

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="用原生 JavaScript 制作的贪吃蛇 Git 练习项目" />
+    <title>贪吃蛇 · Git 练习场</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <header>
+        <div>
+          <p class="eyebrow">SNAKE · GIT LAB</p>
+          <h1>贪吃蛇</h1>
+        </div>
+        <div class="scoreboard" aria-label="游戏得分">
+          <div><span>得分</span><strong id="score">0</strong></div>
+          <div><span>最高</span><strong id="best-score">0</strong></div>
+        </div>
+      </header>
+
+      <section class="board-wrap" aria-label="贪吃蛇游戏区域">
+        <canvas id="game" width="420" height="420"></canvas>
+        <div class="overlay" id="overlay">
+          <p id="overlay-title">准备好了吗？</p>
+          <span id="overlay-hint">按方向键或 WASD 开始</span>
+        </div>
+      </section>
+
+      <section class="controls" aria-label="游戏控制">
+        <button id="start-button" type="button">开始游戏</button>
+        <button id="pause-button" type="button">暂停</button>
+      </section>
+
+      <section class="help">
+        <p><kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd> 或 <kbd>WASD</kbd> 移动</p>
+        <p><kbd>Space</kbd> 暂停 · <kbd>R</kbd> 重开</p>
+      </section>
+
+      <div class="mobile-pad" aria-label="触屏方向控制">
+        <button type="button" data-direction="up" aria-label="向上">↑</button>
+        <button type="button" data-direction="left" aria-label="向左">←</button>
+        <button type="button" data-direction="down" aria-label="向下">↓</button>
+        <button type="button" data-direction="right" aria-label="向右">→</button>
+      </div>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>
